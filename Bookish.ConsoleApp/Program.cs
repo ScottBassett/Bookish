@@ -4,7 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using Bookish.DataAccess;
 using Npgsql;
+using Dapper;
 
 namespace Bookish.ConsoleApp
 {
@@ -12,13 +16,12 @@ namespace Bookish.ConsoleApp
     {
         static void Main(string[] args)
         {
-            List<Book> bookList = new List<Book>();
+            foreach ( var book in BookRepository.GetBooks())
+            {
+                Console.WriteLine($"Title: {book.title}, Author: {book.author}, ISBN: {book.isbn}");
+            }
 
-            var connectionString = ConfigurationManager.ConnectionStrings["Bookish"].ConnectionString;
-            var connection = new NpgsqlConnection(connectionString);
-
-            connection.Open();
+            Console.ReadLine();
         }
-
     }
 }
