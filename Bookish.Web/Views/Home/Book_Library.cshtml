@@ -1,0 +1,26 @@
+﻿@model List<Bookish.ConsoleApp.Book>
+
+
+@{
+    ViewBag.Title = "Book Library";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.title</td>
+        </tr>
+    }
+    
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    </tbody>
+</table>

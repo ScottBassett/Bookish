@@ -19,3 +19,5 @@ CREATE TABLE checked_out (
 	book_id serial not null,
 	due_date date not null
 )
+
+"Select * from books order by author"

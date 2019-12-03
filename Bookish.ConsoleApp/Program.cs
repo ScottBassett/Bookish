@@ -16,9 +16,12 @@ namespace Bookish.ConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Bookish! Look at all our amazing users!");
+            Console.ReadLine();
             foreach ( var book in BookRepository.GetBooks())
             {
-                Console.WriteLine($"Title: {book.title}, Author: {book.author}, ISBN: {book.isbn}");
+                Console.WriteLine($"{book.title}  {book.author}");
+                
             }
 
             Console.ReadLine();

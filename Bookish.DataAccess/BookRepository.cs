@@ -18,8 +18,18 @@ namespace Bookish.DataAccess
             var connection = new NpgsqlConnection(connectionString);
             connection.Open();
 
-            var bookList = connection.Query<Book>("Select * from books order by author");
-            return bookList.ToList();
+            var bookList = connection.Query<Book>("Select * from books order by title ASC NULLS LAST");
+            
+           return bookList.ToList();
+        }
+        public static List<Users> GetUsers()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["Bookish"].ConnectionString;
+            var connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+
+            var userList = connection.Query<Users>("Select * from users");
+            return userList.ToList();
         }
     }
 }
