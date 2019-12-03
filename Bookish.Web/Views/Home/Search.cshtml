@@ -1,0 +1,24 @@
+﻿@model Bookish.Web.Models.SearchResultsModel
+
+
+@{
+    ViewBag.Title = "Book Library";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>You searched for @Model.title.</p>
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+    @foreach (var book in Model.results)
+    {
+        <tr>
+            <td>@book.title</td>
+            <td>@book.author</td>
+        </tr>
+    }
+    </tbody>
+</table>

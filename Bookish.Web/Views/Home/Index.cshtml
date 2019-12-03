@@ -1,35 +1,46 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿  
+@model List<Bookish.DataAccess.BookedOut>
+
+@*{
+        ViewBag.Title = "Home Page";
+    }*@
+
 
 <div class="jumbotron">
-    <h1>Git Bashers Bookish</h1>
-    <p class="lead">Please register an account to borrow books,or log in to see your books.</p>
+    <h1>Git Bashers Library</h1>
+    <p class="lead">Welcome!</p>
     <p><a href="/Home/Book_Library" class="btn btn-primary btn-lg">Browse book library</a></p>
     <form action="/Home/Search">
-        <input class="form-control" type="text" placeholder="Search by title or author..." aria-label="Search" name="title"></input>
-        <input type="submit">
+        <input class="form-control" type="text" placeholder="Search by title or author..." aria-label="Search" name="userInput"></input>
+        <input type="submit" value="Let's go!">
     </form>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
+        <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                    <tr>
+                        <td>@book.title</td>
+                        <td>@book.author</td>
+                        <td>@(book.due_date?.ToShortDateString())</td>
+                        
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
 </div>

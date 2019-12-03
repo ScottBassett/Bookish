@@ -27,6 +27,29 @@ textarea {
 }
 
 table {
-    border: purple 5px solid;
+    
+    width: 100%;
 }
+
+td {
+    padding: 15px;
+    text-align: left;
+    border: #FFFFFF 5px solid;
+}
+
+th {
+    padding: 15px;
+    text-align: center;
+    border: #FFFFFF 5px solid;
+}
+
+tr {
+    background-color: #c2c2c2;
+}
+input[type=submit] {
+    color: black;
+    border: none;
+}
+
+
 

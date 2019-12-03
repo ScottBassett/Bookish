@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Bookish.ConsoleApp;
 using Dapper;
 using Npgsql;
 
@@ -30,6 +29,16 @@ namespace Bookish.DataAccess
 
             var userList = connection.Query<Users>("Select * from users");
             return userList.ToList();
+        }
+        public static List<BookedOut> CheckedOut()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["Bookish"].ConnectionString;
+            var connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+
+            var bookList = connection.Query<BookedOut>("Select title, author, due_date from checked_out join books using(book_id)");
+
+            return bookList.ToList();
         }
     }
 }

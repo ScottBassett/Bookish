@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bookish.DataAccess;
+using Bookish.Web.Models;
 
 namespace Bookish.Web.Controllers
 {
@@ -11,7 +12,8 @@ namespace Bookish.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var checkedOut = BookRepository.CheckedOut();
+            return View(checkedOut);
         }
 
         public ActionResult Book_Library()
@@ -32,10 +34,28 @@ namespace Bookish.Web.Controllers
         }
 
         //[HttpPost]
-        public ActionResult Search(string title)
+        public ActionResult Search(string userInput)
         {
-            return View();
+            if (string.IsNullOrEmpty(userInput))
+            {
+                return RedirectToAction("Index");
+            }
+
+            var gotBooks = BookRepository.GetBooks();
+            string userInputLower = userInput.ToLower();
+            var searchList = gotBooks.FindAll(x =>
+                x.title.ToLower().Contains(userInputLower) || x.author.ToLower().Contains(userInputLower));
+            return View(new SearchResultsModel()
+            {
+                title = userInput,
+                results = searchList
+            });
         }
 
+        public ActionResult BookedOut()
+        {
+            var checkedOut = BookRepository.CheckedOut();
+            return View(checkedOut);
+        }
     }
 }
