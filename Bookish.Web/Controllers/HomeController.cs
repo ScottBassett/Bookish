@@ -57,5 +57,30 @@ namespace Bookish.Web.Controllers
             var checkedOut = BookRepository.CheckedOut();
             return View(checkedOut);
         }
+
+        public ActionResult Book_Detail(int book_id)
+        {
+            var book = new BookWithAvailableCopies(BookRepository.BookDetail(book_id));
+
+            int checkOuts = BookRepository.AvailableCopies().Count(item => item.book_id == book_id);
+            book.available_copies -= checkOuts;
+
+            return View(book);
+        }
+
+        //public ActionResult AvailableCopies()
+        //{
+        //    var availableCopies = BookRepository.AvailableCopies();
+        //    var books = BookRepository.GetBooks().Select(book => new BookWithAvailableCopies(book)).ToList();
+        //    var bookDictionary = books.ToDictionary(book => book.book_id);
+
+        //    foreach (var checkOut in availableCopies)
+        //    {
+        //        var book = bookDictionary[checkOut.book_id];
+        //        --book.available_copies;
+        //    }
+
+        //    return View(books);
+        //}
     }
 }

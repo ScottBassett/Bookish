@@ -1,11 +1,20 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url(/Content/library-image-1.jpg);
+    background-size: cover;
+    padding: 5px;
 }
+
 div .jumbotron {
-    background-color: #686869;
-    color: #ededed;
+    background: rgba(104, 104, 105, 0.85);
+    color: #ededed;                   
 }
+
+.jumbotron h1 {
+    opacity: 1;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -27,29 +36,77 @@ textarea {
 }
 
 table {
-    
     width: 100%;
+    
 }
 
 td {
-    padding: 15px;
+    padding: 5px;
     text-align: left;
-    border: #FFFFFF 5px solid;
+    border-top: rgb(104, 104, 105) solid 1px;
+    border-bottom: rgb(104, 104, 105) solid 1px;
 }
 
 th {
     padding: 15px;
     text-align: center;
-    border: #FFFFFF 5px solid;
 }
 
 tr {
-    background-color: #c2c2c2;
+    background: rgba(194, 194, 194, 0.5);
+    /*background-color: #c2c2c2;*/
 }
+
 input[type=submit] {
     color: black;
     border: none;
 }
+
+footer {
+    background-color: #222;
+    padding-top: 27px;
+    padding-bottom: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: #9d9d9d;
+}
+.row {
+    margin-left: 0px;
+    width: 100%;
+    background: rgba(104, 104, 105, 0.85);
+}
+
+h2 {
+    color: aliceblue;
+    padding-left: 10px;
+    vertical-align: auto;
+}
+
+.center {
+    text-align: center;
+ }
+
+.submit {
+    border-radius: 4px;
+    padding: 6px;
+}
+
+div {
+    border-radius: 4px;
+
+}
+
+footer {
+    border-radius: 4px;
+}
+
+.library {
+    margin-left: 0px;
+    width: 100%;
+    background: rgba(104, 104, 105, 0.85);
+    padding-top: 50px;
+}
+
 
 
 

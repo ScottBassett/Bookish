@@ -4,26 +4,30 @@
 @{
     ViewBag.Title = "Book Library";
 }
-<h2>@ViewBag.Title</h2>
 
-<table>
-    <thead>
+
+<div class="library">
+    <h2>Book Library</h2>
+    <table>
+        <thead>
         <tr>
             <th>Title</th>
             <th>Author</th>
             <th>ISBN</th>
             <th>Copies</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         @foreach (var book in Model)
         {
-        <tr>
-            <td>@book.title</td>
-            <td>@book.author</td>
-            <td>@book.isbn</td>
-            <td>@book.copies</td>
-        </tr>
+            <tr>
+                <td>@Html.ActionLink(book.title, "Book_Detail", new {book_id = book.book_id})</td>
+                <td>@book.author</td>
+                <td>@book.isbn</td>
+                <td>@book.copies</td>
+            </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+    <p></p>
+</div>

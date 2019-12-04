@@ -12,35 +12,31 @@
     <p><a href="/Home/Book_Library" class="btn btn-primary btn-lg">Browse book library</a></p>
     <form action="/Home/Search">
         <input class="form-control" type="text" placeholder="Search by title or author..." aria-label="Search" name="userInput"></input>
-        <input type="submit" value="Let's go!">
+        <input type="submit" class="submit" value="Go!" style="position: relative; bottom: 32.5px; left:28%;";>
     </form>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Due Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var book in Model)
-                    {
-                    <tr>
-                        <td>@book.title</td>
-                        <td>@book.author</td>
-                        <td>@(book.due_date?.ToShortDateString())</td>
-                        
-                    </tr>
-                    }
-                </tbody>
-            </table>
-
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-
+    
+        <h2>Your Books</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Due Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.title</td>
+                <td class="center">@book.author</td>
+                <td class="center">@(book.due_date?.ToShortDateString())</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <p></p>
 </div>

@@ -6,7 +6,7 @@ using Bookish.DataAccess;
 
 namespace Bookish.DataAccess
 {
-    public class BookedOut
+    public class BookedOut : Book
     {
         public string title { get; set; }
         public string author { get; set; }

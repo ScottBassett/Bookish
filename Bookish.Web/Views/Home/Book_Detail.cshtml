@@ -1,0 +1,26 @@
+﻿@using Bookish.DataAccess
+@model Bookish.DataAccess.BookWithAvailableCopies
+@{
+    ViewBag.Title = Model.title;
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Total Copies</th>
+            <th>Available Copies</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.title</td>
+        <td>@Model.author</td>
+        <td>@Model.copies</td>
+        <td>@Model.available_copies</td>
+        </tr>
+    </tbody>
+</table>

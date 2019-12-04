@@ -15,4 +15,18 @@ namespace Bookish.DataAccess
         public int copies { get; set; }
 
     }
+
+    public class BookWithAvailableCopies : Book {
+        public BookWithAvailableCopies(Book book)
+        {
+            book_id = book.book_id;
+            title = book.title;
+            author = book.author;
+            copies = book.copies;
+            isbn = book.isbn;
+            available_copies = book.copies;
+        }
+
+        public int available_copies { get; set; }
+    }
 }

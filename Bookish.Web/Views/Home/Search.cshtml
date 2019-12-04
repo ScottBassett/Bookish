@@ -16,7 +16,7 @@
     @foreach (var book in Model.results)
     {
         <tr>
-            <td>@book.title</td>
+            <td>@Html.ActionLink(book.title,"Book_Detail", new { book_id=book.book_id})</td>
             <td>@book.author</td>
         </tr>
     }
